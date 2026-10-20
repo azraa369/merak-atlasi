@@ -5,6 +5,7 @@ Türkçe, etkileşimli bir keşif sitesi. Ön yüz GitHub Pages üzerinde; uydu 
 ## Ziyaretçiler
 
 - Beş gezegen: teknoloji, uzay, müzik, oyun ve hayal gücü.
+- Uydu notları ayrı `notlar.html` sayfasında açılır. Kategori bağlantıları, her notun kendi bağlantısı ve Atlas’a dönüş bulunur. `notlar.css` ve `notlar.js` sayfanın görünümünü ve veri yüklemesini yönetir.
 - Merak pusulası ve “Beni şaşırt”: ziyaretçinin yazdığı konuya göre ilgili gezegenler önerilir. Birden fazla eşleşme seçim olarak sunulur. Eşleşme yoksa ziyaretçiye seçenekler gösterilir. Bu özellik Türkçe anahtar sözcük eşleştirmesidir; genel sorulara yapay zekâ yanıtı üretmez ve yazılan merakları kaydetmez.
 - Gezegen deneylerinin altında ziyaretçinin kendi sorusunu yazabileceği ek keşif alanı bulunur.
 - Yıldız ekleme, geri alma, renk seçme ve SVG indirme özellikli takımyıldızı. Çizim yalnızca ziyaretçinin tarayıcısında saklanır.

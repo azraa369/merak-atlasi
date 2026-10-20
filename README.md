@@ -31,3 +31,12 @@ Mobil ekranlara uyumlu düzen, klavyeyle açılıp Escape ile kapanan diyaloglar
 ## Proje fikri
 
 Bir kişisel siteyi bilgi listesinden etkileşimli keşif alanına dönüştürmek. Tasarım ve uygulama yapay zekâ desteğiyle hazırlanmıştır.
+
+## İkinci keşif: ziyaretçiler de evrene katılıyor
+
+- Gezegen açılışında yaklaşma animasyonu; azaltılmış hareket tercihiyle animasyon atlanır.
+- Üç kategorili keşif günlüğü: `explore.js` içindeki `journal` nesnesinden düzenlenir.
+- En fazla 25 yıldızla çizilen, isimlendirilen ve SVG olarak indirilen takımyıldızı. Klavye kullanıcıları Yıldız ekle düğmesini kullanabilir. Çizim yalnızca tarayıcıda saklanır.
+- Ortak hatıra duvarı: GitHub Issue #1 yorumlarını herkese açık GitHub API’sinden okur. Yorum gönderimi GitHub üzerinde, GitHub hesabıyla yapılır; siteye parola veya erişim anahtarı eklenmez. Depo sahibi yorumları GitHub üzerinden yönetebilir. İlk 100 yorumun son 24 tanesi sitede gösterilir; defterin tamamı GitHub bağlantısından okunabilir. API sınırı veya bağlantı hatasında alternatif bağlantı ve yeniden deneme sunulur.
+
+Yayın için `index.html`, `explore.css` ve `explore.js` aynı klasörde tutulmalıdır. Harici yorumlar HTML olarak çalıştırılmaz; düz metin olarak gösterilir.

@@ -1,42 +1,39 @@
 # Azra’nın Merak Atlası
 
-Kendini bir CV ile anlatmak yerine ziyaretçiyi beş küçük deneye davet eden, Türkçe bir kişisel web projesi.
+Türkçe, etkileşimli bir keşif sitesi. Ön yüz GitHub Pages üzerinde; uydu notları, ziyaretçi hatıraları ve yönetici girişi Supabase ile çalışır.
 
-## Deneyler
+## Ziyaretçiler
 
-- Teknoloji: yapay zekâ ve yaratıcılık üzerine seçimler.
-- Uzay: yerçekimine göre yaklaşık tartı sonucu.
-- Müzik: Web Audio API ile tarayıcıda üretilen üç notalık sesler.
-- Oyun: üç çiftli hafıza oyunu.
-- Hayal gücü: beklenmedik kavramlarla fikir üretimi.
+- Beş gezegen: teknoloji, uzay, müzik, oyun ve hayal gücü.
+- Merak pusulası ve “Beni şaşırt”: ziyaretçinin yazdığı konuya göre ilgili gezegenler önerilir. Birden fazla eşleşme seçim olarak sunulur. Eşleşme yoksa ziyaretçiye seçenekler gösterilir. Bu özellik Türkçe anahtar sözcük eşleştirmesidir; genel sorulara yapay zekâ yanıtı üretmez ve yazılan merakları kaydetmez.
+- Gezegen deneylerinin altında ziyaretçinin kendi sorusunu yazabileceği ek keşif alanı bulunur.
+- Yıldız ekleme, geri alma, renk seçme ve SVG indirme özellikli takımyıldızı. Çizim yalnızca ziyaretçinin tarayıcısında saklanır.
+- Hatıralar doğrudan sayfadaki formdan, hesap açmadan gönderilir. Yalnızca yönetici onayından geçenler herkese görünür. Önceki GitHub defterinin yayınlanmış notları da arşiv olarak korunur.
 
-Keşif pasaportu localStorage ile yalnızca ziyaretçinin tarayıcısında saklanır. Hesap, sunucu veya API anahtarı gerekmez. Site bir yapay zekâ servisine istek göndermez; yapay zekâ desteği geliştirme sürecinde kullanılmıştır.
+## Azra için yönetim
 
-## Çalıştırma ve yayın
+1. Sayfa sonundaki **Azra’nın yönetim alanı** düğmesine bas.
+2. Yönetici e-postanı yazıp giriş bağlantısı iste. E-postadaki bağlantıyı aynı tarayıcıda aç.
+3. Kategori, başlık, not ve isteğe bağlı ziyaretçi sorusunu doldurup **Notu herkese yayınla** düğmesine bas.
+4. Notlarını düzenleyebilir, arşivleyebilir ve arşivden geri getirebilirsin.
+5. Ziyaretçi hatıralarını **Onayla ve yayınla**, **Duvardan gizle** veya **Arşivle** düğmeleriyle yönetebilirsin.
 
-`index.html` dosyasını bir tarayıcıda açmak yeterlidir. GitHub Pages için Settings → Pages → Deploy from a branch → main → / (root) seçilir.
+Yetki e-posta doğrulamasından sonra veritabanında kontrol edilir. Yönetim oturumu sekme oturumunda saklanır. Ortak bilgisayarda işin bitince çıkış yap.
 
-## Teknolojiler
+## Dosyalar ve yayın
 
-HTML, CSS, JavaScript, SVG, Web Audio API ve localStorage. Yazı tipleri Google Fonts üzerinden yüklenir; yüklenemezse sistem yazı tipleri kullanılır. Harici JavaScript kütüphanesi yoktur.
+- `index.html`: ana sayfa ve deneyler.
+- `explore.css`, `explore.js`: görsel keşif alanları ve takımyıldızı.
+- `routing.js`: meraka göre yönlendirme.
+- `community.css`, `community.js`: yönetim, veri bağlantıları, uydu notları ve hatıra formu.
+- `atlas-config.js`: Supabase proje adresi ve tarayıcıda kullanılabilen publishable anahtar. Gizli service-role anahtarı içermez.
+- `backend/schema.sql`: tablolar ve RLS yetki kuralları. Yönetici e-postası bu dosyada bulunmaz; veritabanının özel şemasında tutulur.
+- `.github/workflows/publish.yml`: statik ön yüzü yayınlar ve eski GitHub defterinin arşivini korur.
 
-## Kişiselleştirme
+GitHub Pages kaynağı **GitHub Actions** olarak seçilidir. Yeni uydu notu ve hatıra eklemek için kod değiştirmek veya siteyi yeniden yayınlamak gerekmez.
 
-Başlıklar ve giriş metinleri `index.html` içindedir. Gezegen içerikleri script bölümündeki `topics` nesnesinden düzenlenebilir. Bunlar projenin keşif temalarıdır; gerçek kişi hakkında biyografik iddialar içermez.
+## Geliştirme
 
-## Tasarım ve erişilebilirlik
+HTML, CSS, JavaScript, SVG, Web Audio API, Supabase Postgres ve Supabase Auth kullanılır. Yönetici girişinde Supabase JavaScript istemcisi yüklenir. Yazı tipleri Google Fonts üzerinden gelir; yüklenemezse sistem yazı tipleri kullanılır. Tasarım ve uygulama yapay zekâ desteğiyle hazırlanmıştır.
 
-Mobil ekranlara uyumlu düzen, klavyeyle açılıp Escape ile kapanan diyaloglar, odak göstergeleri, etiketli kontroller ve azaltılmış hareket tercihi desteği bulunur.
-
-## Proje fikri
-
-Bir kişisel siteyi bilgi listesinden etkileşimli keşif alanına dönüştürmek. Tasarım ve uygulama yapay zekâ desteğiyle hazırlanmıştır.
-
-## İkinci keşif: ziyaretçiler de evrene katılıyor
-
-- Gezegen açılışında yaklaşma animasyonu; azaltılmış hareket tercihiyle animasyon atlanır.
-- Üç kategorili keşif günlüğü: `explore.js` içindeki `journal` nesnesinden düzenlenir.
-- En fazla 25 yıldızla çizilen, isimlendirilen ve SVG olarak indirilen takımyıldızı. Klavye kullanıcıları Yıldız ekle düğmesini kullanabilir. Çizim yalnızca tarayıcıda saklanır.
-- Ortak hatıra duvarı: GitHub Issue #1 yorumlarını GitHub Actions ile guestbook.json dosyasına aktarır. Ziyaretçiler en yeni 24 yorumu sitenin kendi dosyasından okur. Yorum gönderimi GitHub üzerinde, GitHub hesabıyla yapılır; siteye parola veya erişim anahtarı eklenmez. Depo sahibi yorumları GitHub üzerinden yönetebilir. Defterin tamamı GitHub bağlantısından okunabilir. Bağlantı hatasında alternatif bağlantı ve yeniden deneme sunulur.
-
-Yayın için `index.html`, `explore.css`, `explore.js` ve `guestbook.json` aynı klasörde tutulmalıdır. GitHub Pages kaynağı GitHub Actions olarak seçilir; `.github/workflows/publish.yml` yeni yorum, yorum düzenleme/silme ve ana dala kod gönderiminde siteyi tekrar yayınlar. Harici yorumlar HTML olarak çalıştırılmaz; düz metin olarak gösterilir.
+Ziyaretçi içeriği HTML olarak çalıştırılmaz. Form doğrulaması ve gönderimler arası bekleme veritabanında da uygulanır. Yetkiler ve kontrollere dair notlar `backend/SECURITY.md` içindedir.

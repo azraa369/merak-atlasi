@@ -32,7 +32,7 @@ jobs:
           script: |
             const fs = require('node:fs/promises');
             await fs.mkdir('_site', { recursive: true });
-            for (const name of ['index.html', 'explore.css', 'explore.js']) {
+            for (const name of (await fs.readdir('.')).filter(name => /\.(html|css|js)$/.test(name))) {
               await fs.copyFile(name, '_site/' + name);
             }
             let comments = [];
